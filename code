@@ -1,0 +1,24 @@
+numRange = [0,10]
+while True:
+    numToGuess = int(input("What number do you want the bot to guess that's between 0-10"))
+    if numToGuess>numRange[1] or numToGuess<numRange[0]:
+        continue
+    break
+count = 0
+def guess():
+    global count
+    average = round((numRange[0]+numRange[1])/2)
+    print(f"Guess is {average}")
+    count+=1
+    if average == numToGuess:
+        print(f"Bot guessed the number in {count} tries")
+        exit()
+    elif average > numToGuess:
+        print("Number is too high")
+        numRange[1] = average
+    elif average < numToGuess:
+        print("Number is too low")
+        numRange[0] = average
+    
+while True:
+    guess()
